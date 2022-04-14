@@ -49,4 +49,4 @@ app.post('/', (req,res) =>{
 
 var port = process.env.PORT || '3000';
 
-app.listen(normalizePort(port));
+app.listen(port);
