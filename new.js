@@ -9,7 +9,7 @@ app.get('/' , (req,res) =>{
     res.send("<h1>HUSAIN</h1>");
 })
 
-app.post('/', (req,res) =>{
+app.post('/bfhl', (req,res) =>{
     var a = {}
     const body = req.body;
     const user = 'husain'
