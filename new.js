@@ -6,42 +6,44 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.get('/' , (req,res) =>{
-    res.send("<h1>HUSAIN</h1>");
+    res.send("");
 })
 
 app.post('/bfhl', (req,res) =>{
     var a = {}
     const body = req.body;
-    const user = 'husain'
-    var odd = [];
-    var even = [];
-    var status = true;
-    el = 0;
-    ol = 0;
-    for(i=0; i<body.numbers.length; i++){
-        if(isNaN(parseInt(body.numbers[i]))){
-            status = false;                 
-            break;
-        }
-        if(parseInt(body.numbers[i]%2) == 0){
-            even[el++] = parseInt(body.numbers[i]);
+    const user_id = 'husain_rangwala_30012001';
+    const email = "husainrangwalacs19@acropolis.in";
+    const roll_number = "0827CS191111";
+    var numbers = [];
+    var alphabets = [];
+    var is_success = true;
+    numbers_length = 0;
+    alphabets_length = 0;
+    for(i=0; i<body.data.length; i++){
+        if(isNaN(parseInt(body.data[i]))){
+            alphabets[alphabets_length++] = body.data[i];
         }
         else{
-            odd[ol++] = parseInt(body.numbers[i]);
+            numbers[numbers_length++] = parseInt(body.data[i]);
         }
     }
-    if(status){
+    if(is_success){
         a = {
-            user: user,
-            status: status,
-            odd: odd,
-            even: even
+            "is_success" : is_success,
+            "user_id": user_id,
+            "email" : email,
+            "roll_number": roll_number,
+            "numbers": numbers,
+            "alphabets" : alphabets
         }
     }
     else{
         a = {
-            user: user,
-            status: status,
+            "is_success" : is_success,
+            "user_id": user_id,
+            "email" : email,
+            "roll_number": roll_number            
         }   
     }
     res.json(a);
